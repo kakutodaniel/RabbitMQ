@@ -1,0 +1,14 @@
+C:\projetos\RabbitMQ_POC\Consumer.2\bin\Debug\netcoreapp2.2\Consumer.2.deps.json
+C:\projetos\RabbitMQ_POC\Consumer.2\bin\Debug\netcoreapp2.2\Consumer.2.runtimeconfig.json
+C:\projetos\RabbitMQ_POC\Consumer.2\bin\Debug\netcoreapp2.2\Consumer.2.runtimeconfig.dev.json
+C:\projetos\RabbitMQ_POC\Consumer.2\bin\Debug\netcoreapp2.2\Consumer.2.dll
+C:\projetos\RabbitMQ_POC\Consumer.2\bin\Debug\netcoreapp2.2\Consumer.2.pdb
+C:\projetos\RabbitMQ_POC\Consumer.2\bin\Debug\netcoreapp2.2\Application.dll
+C:\projetos\RabbitMQ_POC\Consumer.2\bin\Debug\netcoreapp2.2\Application.pdb
+C:\projetos\RabbitMQ_POC\Consumer.2\obj\Debug\netcoreapp2.2\Consumer.2.csprojAssemblyReference.cache
+C:\projetos\RabbitMQ_POC\Consumer.2\obj\Debug\netcoreapp2.2\Consumer.2.csproj.CoreCompileInputs.cache
+C:\projetos\RabbitMQ_POC\Consumer.2\obj\Debug\netcoreapp2.2\Consumer.2.AssemblyInfoInputs.cache
+C:\projetos\RabbitMQ_POC\Consumer.2\obj\Debug\netcoreapp2.2\Consumer.2.AssemblyInfo.cs
+C:\projetos\RabbitMQ_POC\Consumer.2\obj\Debug\netcoreapp2.2\Consumer.2.csproj.CopyComplete
+C:\projetos\RabbitMQ_POC\Consumer.2\obj\Debug\netcoreapp2.2\Consumer.2.dll
+C:\projetos\RabbitMQ_POC\Consumer.2\obj\Debug\netcoreapp2.2\Consumer.2.pdb

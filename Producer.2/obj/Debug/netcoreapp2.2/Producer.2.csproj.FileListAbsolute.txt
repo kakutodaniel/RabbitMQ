@@ -1,0 +1,14 @@
+C:\projetos\RabbitMQ_POC\Producer.2\bin\Debug\netcoreapp2.2\Producer.2.deps.json
+C:\projetos\RabbitMQ_POC\Producer.2\bin\Debug\netcoreapp2.2\Producer.2.runtimeconfig.json
+C:\projetos\RabbitMQ_POC\Producer.2\bin\Debug\netcoreapp2.2\Producer.2.runtimeconfig.dev.json
+C:\projetos\RabbitMQ_POC\Producer.2\bin\Debug\netcoreapp2.2\Producer.2.dll
+C:\projetos\RabbitMQ_POC\Producer.2\bin\Debug\netcoreapp2.2\Producer.2.pdb
+C:\projetos\RabbitMQ_POC\Producer.2\bin\Debug\netcoreapp2.2\Application.dll
+C:\projetos\RabbitMQ_POC\Producer.2\bin\Debug\netcoreapp2.2\Application.pdb
+C:\projetos\RabbitMQ_POC\Producer.2\obj\Debug\netcoreapp2.2\Producer.2.csproj.CoreCompileInputs.cache
+C:\projetos\RabbitMQ_POC\Producer.2\obj\Debug\netcoreapp2.2\Producer.2.AssemblyInfoInputs.cache
+C:\projetos\RabbitMQ_POC\Producer.2\obj\Debug\netcoreapp2.2\Producer.2.AssemblyInfo.cs
+C:\projetos\RabbitMQ_POC\Producer.2\obj\Debug\netcoreapp2.2\Producer.2.csproj.CopyComplete
+C:\projetos\RabbitMQ_POC\Producer.2\obj\Debug\netcoreapp2.2\Producer.2.dll
+C:\projetos\RabbitMQ_POC\Producer.2\obj\Debug\netcoreapp2.2\Producer.2.pdb
+C:\projetos\RabbitMQ_POC\Producer.2\obj\Debug\netcoreapp2.2\Producer.2.csprojAssemblyReference.cache
