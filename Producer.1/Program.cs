@@ -3,7 +3,6 @@ using RabbitMQ.Client;
 using System;
 using System.Collections.Generic;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace Producer._1
 {
@@ -40,16 +39,15 @@ namespace Producer._1
                     channel.ExchangeDeclare(exchange: exchange, type: "direct");
 
                     var _args = new Dictionary<string, object>();
-                    //_args.Add("x-message-ttl", 60000);   //expire message
-                    //480000 (8hs)
-                    _args.Add("x-expires", 6000000);   //expire queue if not activate miliseconds (15 days is enough)
-                    //_args.Add("x-queue-mode", "lazy");   //lazy mode, store message on disk
+                    _args.Add("x-message-ttl", 21600 * 1000);   //expire message
+                    //_args.Add("x-expires", 6000000);   //expire queue if not activate miliseconds (15 days is enough)
+                    _args.Add("x-queue-mode", "lazy");   //lazy mode, store message on disk and doesn't use RAM at this moment
 
-                    channel.QueueDeclare(queue: queue, durable: true, exclusive: false, autoDelete: false, arguments: _args);
+                    //channel.QueueDeclare(queue: queue, durable: true, exclusive: false, autoDelete: false, arguments: _args);
 
-                    channel.QueueBind(queue: queue, exchange: exchange, routingKey: "vtex.seller.catalog.2", arguments: null);
+                    //channel.QueueBind(queue: queue, exchange: exchange, routingKey: "vtex.seller.catalog", arguments: null);
 
-                    channel.BasicPublish(exchange: exchange, routingKey: "vtex.seller.catalog.2", basicProperties: properties, body: ConvertToByte(json));
+                    channel.BasicPublish(exchange: exchange, routingKey: "vtex.seller.catalog", basicProperties: properties, body: ConvertToByte(json));
 
                     //channel.WaitForConfirmsOrDie(TimeSpan.FromMilliseconds(1));
 

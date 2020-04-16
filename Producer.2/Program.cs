@@ -28,6 +28,8 @@ namespace Producer._2
                 {
                     //channel.ConfirmSelect();
 
+                    //connection.Close();
+
                     var json = JsonConvert.SerializeObject(new { id = "123", seller = "9879" });
 
                     var properties = channel.CreateBasicProperties();
@@ -38,15 +40,15 @@ namespace Producer._2
                     channel.ExchangeDeclare(exchange: exchange, type: "direct");
 
                     var _args = new Dictionary<string, object>();
-                    //_args.Add("x-message-ttl", 60000);   //expire message
-                    _args.Add("x-expires", 6000000);   //expire queue if not activate miliseconds (15 days is enough)
-                    //_args.Add("x-queue-mode", "lazy");   //lazy mode, store message on disk
+                    _args.Add("x-message-ttl", 21600 * 1000);   //expire message (6hs)
+                    //_args.Add("x-expires", 6000000);   //expire queue if not activate miliseconds (15 days is enough)
+                    _args.Add("x-queue-mode", "lazy");   //lazy mode, store message on disk
 
                     channel.QueueDeclare(queue: queue, durable: true, exclusive: false, autoDelete: false, arguments: _args);
 
-                    channel.QueueBind(queue: queue, exchange: exchange, routingKey: string.Empty, arguments: null);
+                    channel.QueueBind(queue: queue, exchange: exchange, routingKey: "", arguments: null);
 
-                    channel.BasicPublish(exchange: exchange, routingKey: string.Empty, basicProperties: properties, body: ConvertToByte(json));
+                    channel.BasicPublish(exchange: exchange, routingKey: "", basicProperties: properties, body: ConvertToByte(json));
 
                     //channel.WaitForConfirmsOrDie(TimeSpan.FromMilliseconds(1));
 
