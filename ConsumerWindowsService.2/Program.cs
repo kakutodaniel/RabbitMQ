@@ -29,3 +29,10 @@ namespace ConsumerWindowsService._2
         }
     }
 }
+
+
+
+//sc create consumer1 binPath = "C:\publish\consumer1\ConsumerWindowsService.2.exe"
+// sc start consumer1
+// sc stop consumer1
+// after that go to windows services and configure to automatically start
