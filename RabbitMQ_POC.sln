@@ -15,7 +15,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Producer.2", "Producer.2\Pr
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PageOut", "PageOut\PageOut.csproj", "{4F929CDD-4173-45FE-B125-C0D21EC3DCA4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsumerWindowsService.2", "ConsumerWindowsService.2\ConsumerWindowsService.2.csproj", "{00976D6D-9C7E-42EC-B8EB-7CEE023E1D7F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsumerWindowsService.2", "ConsumerWindowsService.2\ConsumerWindowsService.2.csproj", "{00976D6D-9C7E-42EC-B8EB-7CEE023E1D7F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -30,8 +30,6 @@ namespace Producer._2
 
                     //connection.Close();
 
-                    
-
                     var properties = channel.CreateBasicProperties();
                     properties.Persistent = true;
                     properties.ContentType = "application/json";
@@ -48,7 +46,7 @@ namespace Producer._2
 
                     channel.QueueBind(queue: queue, exchange: exchange, routingKey: "", arguments: null);
 
-                    for (int i = 0; i < 100; i++)
+                    for (int i = 0; i < 20000; i++)
                     {
                         var json = JsonConvert.SerializeObject(new { id = i, seller = "9879" });
                         channel.BasicPublish(exchange: exchange, routingKey: "", basicProperties: properties, body: ConvertToByte(json));

@@ -19,7 +19,8 @@ namespace Producer._1
                 Port = 5672
             };
 
-            var queue = "catalog";
+            //var queue = "catalog";
+            var queue = "price";
             var exchange = "vtex-seller";
 
             try
@@ -29,7 +30,7 @@ namespace Producer._1
                 {
                     //channel.ConfirmSelect();
 
-                    var json = JsonConvert.SerializeObject(new { id = "123", seller = "9879" });
+                    //var json = JsonConvert.SerializeObject(new { id = "123", seller = "9879" });
 
                     var properties = channel.CreateBasicProperties();
                     properties.Persistent = true;
@@ -44,10 +45,19 @@ namespace Producer._1
                     _args.Add("x-queue-mode", "lazy");   //lazy mode, store message on disk and doesn't use RAM at this moment
 
                     //channel.QueueDeclare(queue: queue, durable: true, exclusive: false, autoDelete: false, arguments: _args);
-
                     //channel.QueueBind(queue: queue, exchange: exchange, routingKey: "vtex.seller.catalog", arguments: null);
+                    //channel.BasicPublish(exchange: exchange, routingKey: "vtex.seller.catalog", basicProperties: properties, body: ConvertToByte(json));
 
-                    channel.BasicPublish(exchange: exchange, routingKey: "vtex.seller.catalog", basicProperties: properties, body: ConvertToByte(json));
+                    // if the queue existed would not need QueueDeclare and QueueBind
+                    // and BasicPublish would only send to previously registered routingKey
+                    channel.QueueDeclare(queue: queue, durable: true, exclusive: false, autoDelete: false, arguments: _args);
+                    channel.QueueBind(queue: queue, exchange: exchange, routingKey: "", arguments: null);
+
+                    for (int i = 0; i < 20000; i++)
+                    {
+                        var json = JsonConvert.SerializeObject(new { id = i, seller = "9879" });
+                        channel.BasicPublish(exchange: exchange, routingKey: "", basicProperties: properties, body: ConvertToByte(json));
+                    }
 
                     //channel.WaitForConfirmsOrDie(TimeSpan.FromMilliseconds(1));
 
