@@ -30,7 +30,7 @@ namespace Producer._2
 
                     //connection.Close();
 
-                    var json = JsonConvert.SerializeObject(new { id = "123", seller = "9879" });
+                    
 
                     var properties = channel.CreateBasicProperties();
                     properties.Persistent = true;
@@ -48,7 +48,13 @@ namespace Producer._2
 
                     channel.QueueBind(queue: queue, exchange: exchange, routingKey: "", arguments: null);
 
-                    channel.BasicPublish(exchange: exchange, routingKey: "", basicProperties: properties, body: ConvertToByte(json));
+                    for (int i = 0; i < 100; i++)
+                    {
+                        var json = JsonConvert.SerializeObject(new { id = i, seller = "9879" });
+                        channel.BasicPublish(exchange: exchange, routingKey: "", basicProperties: properties, body: ConvertToByte(json));
+                    }
+
+                    
 
                     //channel.WaitForConfirmsOrDie(TimeSpan.FromMilliseconds(1));
 
