@@ -47,7 +47,7 @@ namespace ConsumerWindowsService._2
             _connection?.Dispose();
         }
 
-        
+
 
         private void Run()
         {
@@ -66,18 +66,20 @@ namespace ConsumerWindowsService._2
             var exchange = "vtex-seller";
 
             _factory.AutomaticRecoveryEnabled = true;
-            _factory.NetworkRecoveryInterval = TimeSpan.FromSeconds(10);
+            _factory.NetworkRecoveryInterval = TimeSpan.FromSeconds(5);
 
             _connection = _factory.CreateConnection();
             _channel = _connection.CreateModel();
+
+            //distributed messages according to consumer is idle
+            //1 at a time
+            _channel.BasicQos(0, 1, false);
 
 
             //connection = factory.CreateConnection();
             //channel = connection.CreateModel();
 
             _channel.ExchangeDeclare(exchange: exchange, type: "direct");
-
-            //channel.BasicQos
 
             //===============================================
             //create queue if not exists
@@ -95,7 +97,6 @@ namespace ConsumerWindowsService._2
 
             _consumer.Received += (model, ea) =>
             {
-
                 var body = ea.Body;
 
                 var msg = Encoding.UTF8.GetString(body);
@@ -103,9 +104,11 @@ namespace ConsumerWindowsService._2
 
                 //Console.WriteLine(ea.RoutingKey);
 
-                File.AppendAllText("C:\\consumer1.txt", msg);
+                File.AppendAllText("C:\\consumer2.txt", msg);
 
-                //channel.BasicAck(ea.DeliveryTag, false);
+                Thread.Sleep(500);
+
+                _channel.BasicAck(ea.DeliveryTag, false);
 
                 //if (_delegate(obj).GetAwaiter().GetResult())
                 //{
@@ -119,7 +122,7 @@ namespace ConsumerWindowsService._2
                 //Console.WriteLine(" [x] Received {0}", msg);
             };
 
-            _channel.BasicConsume(queue: queue, autoAck: true, consumer: _consumer);
+            _channel.BasicConsume(queue: queue, autoAck: false, consumer: _consumer);
 
         }
     }

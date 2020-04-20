@@ -53,7 +53,7 @@ namespace Producer._1
                     channel.QueueDeclare(queue: queue, durable: true, exclusive: false, autoDelete: false, arguments: _args);
                     channel.QueueBind(queue: queue, exchange: exchange, routingKey: "", arguments: null);
 
-                    for (int i = 0; i < 20000; i++)
+                    for (int i = 0; i < 10000; i++)
                     {
                         var json = JsonConvert.SerializeObject(new { id = i, seller = "9879" });
                         channel.BasicPublish(exchange: exchange, routingKey: "", basicProperties: properties, body: ConvertToByte(json));
